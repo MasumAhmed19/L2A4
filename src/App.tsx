@@ -1,13 +1,14 @@
-import './App.css'
-import { Button } from './components/ui/button'
-
+import { Outlet } from 'react-router'
+import Footer from './components/Footer/Footer'
+import { Header } from './components/Header/Header'
 function App() {
 
-
   return (
-    <>
-     <Button>Hello</Button>
-    </>
+    <div className=''>
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
   )
 }
 
