@@ -1,7 +1,14 @@
+import BooksTable from "./BooksTable"
+import HeroSection from "./HeroSection"
 
 const Home = () => {
+
+  console.log(import.meta.env.VITE_BASE_API)
   return (
-    <div>Home</div>
+    <div className="">
+      <HeroSection />
+      <BooksTable />
+    </div>  
   )
 }
 

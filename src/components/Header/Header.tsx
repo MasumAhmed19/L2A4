@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { BookOpen, Plus, BarChart3, Home, Menu } from "lucide-react";
+import { Plus, BarChart3, Home, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -13,12 +13,12 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <nav className="bg-white w-full sticky top-0 z-50">
+    <nav className=" w-full sticky top-0 z-50">
       <div className="w-full container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
-            <Link to="/" className="text-xl text-slate-900">
-              Library Management
+            <Link to="/" className="text-xl text-slate-900 font-semibold">
+              <span className="text-blue-600">Cloud</span>Library
             </Link>
           </div>
 
@@ -34,7 +34,7 @@ export function Header() {
                   className={cn(
                     "flex items-center space-x-2 px-4 py-2 rounded-sm text-sm font-medium transition-all duration-200",
                     isActive
-                      ? "bg-green-50 text-green-700"
+                      ? "bg-blue-50 text-blue-700"
                       : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                   )}
                 >
@@ -65,7 +65,7 @@ export function Header() {
                         className={cn(
                           "flex items-center space-x-2 px-4 py-2 rounded-sm text-sm font-medium transition-all duration-200",
                           isActive
-                            ? "bg-green-50 text-green-700"
+                            ? "bg-blue-50 text-blue-700"
                             : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                         )}
                       >
