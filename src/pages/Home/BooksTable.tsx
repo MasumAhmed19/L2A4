@@ -14,6 +14,8 @@ import {
 import { Edit, Eye } from "lucide-react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { toast } from "sonner";
+import { LiaBookReaderSolid } from "react-icons/lia";
+
 
 import {
   AlertDialog,
@@ -31,6 +33,7 @@ import {
 import { Link } from "react-router";
 import DetailPopup from "../DetailBook/DetailPopup";
 import EditBookPopup from "../EditBook/EditBookPopup";
+import BorrowPopup from "../Borrow/BorrowPopup";
 
 const BooksTable = () => {
   const { data, isLoading } = useGetAllBooksQuery(undefined);
@@ -76,6 +79,9 @@ const BooksTable = () => {
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
+                      {/* Borrow book */}
+                      <BorrowPopup id={el._id}></BorrowPopup>
+
                       
                       {/* Detail Book */}
                       <DetailPopup id={el._id}></DetailPopup>

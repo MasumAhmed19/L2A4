@@ -27,7 +27,7 @@ export const bookApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `${import.meta.env.VITE_BASE_API}/api/books`,
   }),
-  tagTypes: ["books"],
+  tagTypes: ["books", "borrow"],
   endpoints: (builder) => ({
 
     getAllBooks: builder.query<IBook[], void>({
@@ -36,7 +36,7 @@ export const bookApi = createApi({
             method: 'GET',
         }),
         transformResponse: (response: { data: IBook[] }) => response.data,
-        providesTags: ['books']
+        providesTags: ['books', "borrow"]
     }),
 
     getBookById: builder.query<IBook, string>({
@@ -74,7 +74,6 @@ export const bookApi = createApi({
       invalidatesTags: ["books"],
 
     })
-
 
   }),
 });
