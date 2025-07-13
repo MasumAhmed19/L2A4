@@ -23,16 +23,16 @@ import { useDelBookMutation, useGetBookByIdQuery } from "@/redux/api/bookApi";
 import { useParams, Link } from "react-router";
 import { AiOutlineDelete } from "react-icons/ai";
 import { toast } from "sonner";
-import { BookOpen, Download, Edit, User } from "lucide-react";
+import { Download, Edit } from "lucide-react";
 
 const BookDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const { data: book, isLoading } = useGetBookByIdQuery(id ?? "");
+  const { data: book, isLoading } = useGetBookByIdQuery(id as string);
   const [delBook] = useDelBookMutation();
 
   const handleDelete = async () => {
     try {
-      await delBook(book?._id);
+      await delBook((book!)?._id);
       toast.success("Book deleted successfully");
     } catch (err) {
       console.error("Error deleting book:", err);
@@ -62,7 +62,7 @@ const BookDetail = () => {
             </Button>
 
             <Button variant="outline" asChild>
-              <Link to={`/edit-book/${book.id}`}>
+              <Link to={`/edit-book/${book._id}`}>
                 <Edit className="h-4 w-4 mr-2" />
                 Edit
               </Link>

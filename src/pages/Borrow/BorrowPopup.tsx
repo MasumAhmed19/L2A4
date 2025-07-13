@@ -3,7 +3,6 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import {
   useGetAllBooksQuery,
   useGetBookByIdQuery,
-  type IBook,
   type IBorrow,
 } from "@/redux/api/bookApi";
 import { Button } from "@/components/ui/button";
@@ -28,7 +27,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { LiaBookReaderSolid } from "react-icons/lia";
 import { useForm } from "react-hook-form";
-import { addDays, format, startOfDay, startOfToday } from "date-fns";
+import { addDays, format, startOfToday } from "date-fns";
 
 import {
   Form,

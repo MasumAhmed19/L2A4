@@ -11,10 +11,8 @@ import {
   useGetAllBooksQuery,
   type IBook,
 } from "@/redux/api/bookApi";
-import { Edit, Eye } from "lucide-react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { toast } from "sonner";
-import { LiaBookReaderSolid } from "react-icons/lia";
 
 
 import {
@@ -30,7 +28,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Link } from "react-router";
 import DetailPopup from "../DetailBook/DetailPopup";
 import EditBookPopup from "../EditBook/EditBookPopup";
 import BorrowPopup from "../Borrow/BorrowPopup";
@@ -42,7 +39,7 @@ const BooksTable = () => {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await delBook(id);
+      await delBook(id);
       toast.success("Book Deleted Successfully");
     } catch (err) {
       console.log("Error in deleting book-->", err);

@@ -25,7 +25,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { usePostBookMutation, type IBook } from "@/redux/api/bookApi";
 import { SelectValue } from "@radix-ui/react-select";
-import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
 

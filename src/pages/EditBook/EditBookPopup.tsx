@@ -147,7 +147,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
-import { Badge } from "@/components/ui/badge";
 import { Edit } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -167,7 +166,7 @@ const EditBookPopup = ({ id }: EditBookPopupProps) => {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
-  const { data: book, isLoading } = useGetBookByIdQuery(id);
+  const { data: book} = useGetBookByIdQuery(id);
   const [updateBook] = useUpdateBookMutation();
 
   const form = useForm<IBook>();
