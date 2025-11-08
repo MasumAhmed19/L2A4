@@ -52,7 +52,7 @@ const AddBook = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-[60px]">
+    <div className="container mx-auto  py-[60px]">
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl font-medium">Add New Book</CardTitle>
@@ -178,9 +178,9 @@ const AddBook = () => {
                   name="copies"
                   rules={{ required: "Number of copies is required" }}
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="w-full">
                       <FormLabel>Number of Copies*</FormLabel>
-                      <FormControl>
+                      <FormControl className="w-full">
                         <Input
                           type="number"
                           placeholder="1"
@@ -199,7 +199,7 @@ const AddBook = () => {
                   )}
                 />
 
-                <FormField
+                {/* <FormField
                   control={form.control}
                   name="available"
                   render={({ field }) => (
@@ -219,7 +219,7 @@ const AddBook = () => {
                       </div>
                     </FormItem>
                   )}
-                />
+                /> */}
               </div>
             </CardContent>
 

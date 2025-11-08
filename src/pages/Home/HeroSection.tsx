@@ -47,7 +47,7 @@ const HeroSection = () => {
                 <Link to="/borrow-summary">Borrow Summary</Link>
               </Button>
               <Button className="" variant="outline">
-                <Link to="/">Explore Books</Link>
+                <Link to="/add-book">Add Books</Link>
               </Button>
             </div>
           </div>

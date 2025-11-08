@@ -44,6 +44,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { AlertDialogOverlay } from "@radix-ui/react-alert-dialog";
 
 type EditBookPopupProps = {
   id: string;
@@ -191,6 +192,7 @@ const EditBookPopup = ({ id }: EditBookPopupProps) => {
         <DialogTrigger asChild>
           <Edit size={18} className="cursor-pointer" />
         </DialogTrigger>
+
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Edit Book</DialogTitle>

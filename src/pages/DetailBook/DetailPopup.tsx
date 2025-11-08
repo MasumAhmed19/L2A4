@@ -27,41 +27,73 @@ type DetailPopupProps = {
   id: string
 }
 
+
+const GENRE = {
+  FICTION: "Fiction",
+  NON_FICTION: "Non Fiction",
+  SCIENCE: "Scienece",
+  HISTORY: "History",
+  BIOGRAPHY: "Biography",
+  FANTASY: "Fantasy",
+};
+
 const DetailPopup = ({ id }: DetailPopupProps) => {
   const [open, setOpen] = React.useState(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")
   const { data: book, isLoading } = useGetBookByIdQuery(id)
 
-  const BookContent = () => {
-    if (isLoading) return <p>Loading...</p>
-    if (!book) return <p>Book not found.</p>
+const BookContent = () => {
+  if (isLoading)
+    return <p className="text-center text-gray-500 text-sm">Loading...</p>
+  if (!book)
+    return <p className="text-center text-red-500 text-sm">Book not found.</p>
 
-    return (
-      <div className="space-y-4 text-sm text-gray-700">
+  return (
+    <div className="space-y-4 text-sm text-gray-700">
+      <div className="flex items-center justify-between border-b pb-2">
+        <h2 className="text-lg font-semibold text-gray-900">{book.title}</h2>
+        <Badge
+          variant={book.available ? "default" : "destructive"}
+          className="uppercase"
+        >
+          {book.available ? "Available" : "Unavailable"}
+        </Badge>
+      </div>
+
+      <div className="grid grid-cols-2 gap-x-6 gap-y-3">
         <div>
-          <strong>Title:</strong> {book.title}
+          <p className="text-gray-600 text-xs uppercase">Author</p>
+          <p className="font-semibold">{book.author}</p>
         </div>
+
         <div>
-          <strong>Author:</strong> {book.author}
-        </div>
-        <div>
-          <strong>Genre:</strong> <Badge>{book.genre}</Badge>
-        </div>
-        <div>
-          <strong>ISBN:</strong> {book.isbn}
-        </div>
-        <div>
-          <strong>Status:</strong>{" "}
-          <Badge variant={book.available ? "default" : "destructive"}>
-            {book.available ? "Available" : "Unavailable"}
+          <p className="text-gray-600 text-xs uppercase">Genre</p>
+          <Badge variant="secondary" className="capitalize mt-1 font-semibold">
+            {GENRE[book.genre]}
           </Badge>
         </div>
+
         <div>
-          <strong>Description:</strong> {book.description}
+          <p className="text-gray-600 text-xs uppercase">ISBN</p>
+          <p className="font-semibold">{book.isbn}</p>
+        </div>
+
+        <div>
+          <p className="text-gray-600 text-xs uppercase">Copies</p>
+          <p className="font-semibold">{book.copies}</p>
         </div>
       </div>
-    )
-  }
+
+      {book.description && (
+        <div className="pt-3 border-t">
+          <p className="text-gray-500 text-xs uppercase mb-1">Description</p>
+          <p className="leading-relaxed text-gray-700">{book.description}</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
 
   if (isDesktop) {
     return (
