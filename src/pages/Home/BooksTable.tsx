@@ -30,7 +30,6 @@ import {
 import DetailPopup from "../DetailBook/DetailPopup";
 import EditBookPopup from "../EditBook/EditBookPopup";
 import BorrowPopup from "../Borrow/BorrowPopup";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router";
 
 const GENRE = {
@@ -43,7 +42,7 @@ const GENRE = {
 };
 
 const BooksTable = () => {
-  const { data, isLoading } = useGetAllBooksQuery(undefined);
+  const { data, isLoading, refetch:BooktableRetch } = useGetAllBooksQuery(undefined);
   const [delBook] = useDelBookMutation();
   // console.log({ data, isLoading });
 
@@ -164,7 +163,7 @@ const BooksTable = () => {
                     {/* Always visible */}
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-2">
-                        <BorrowPopup id={el._id} />
+                        <BorrowPopup BooktableRetch={BooktableRetch} id={el._id} />
                         <DetailPopup id={el._id} />
                         <EditBookPopup id={el._id} />
 

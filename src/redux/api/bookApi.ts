@@ -19,6 +19,14 @@ export interface IBorrow {
     dueDate: Date
 }
 
+export interface IBorrowSummary {
+    book : {
+      isbn: string,
+      title: string
+    },
+    totalQuantity: number,
+}
+
 export const bookApi = createApi({
   reducerPath: "bookApi",
   baseQuery: fetchBaseQuery({
@@ -33,7 +41,7 @@ export const bookApi = createApi({
             method: 'GET',
         }),
         transformResponse: (response: { data: IBook[] }) => response.data,
-        providesTags: ['books', "borrow"]
+        providesTags: ['books']
     }),
 
     getBookById: builder.query<IBook, string>({

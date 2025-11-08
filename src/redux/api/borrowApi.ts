@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { IBorrow } from "./bookApi";
+import type { IBorrow, IBorrowSummary } from "./bookApi";
 
 export const borrowApi = createApi({
   reducerPath: "borrowApi",
@@ -15,7 +15,7 @@ export const borrowApi = createApi({
             method: "POST",
             body,
           }),
-          invalidatesTags: ["books"],
+          invalidatesTags: ["books", "borrow"],
     }),
 
     getSummary: builder.query({
@@ -23,7 +23,7 @@ export const borrowApi = createApi({
             url:"/",
             method:"GET",
         }),
-         transformResponse: (response: { data: IBorrow[] }) => response.data,
+         transformResponse: (response: { data: IBorrowSummary[] }) => response.data,
         providesTags: ['borrow']
     })
   }),
