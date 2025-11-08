@@ -12,7 +12,6 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        // index: true, //by defaul tasks show krbe
         Component: Home,
       },
       {

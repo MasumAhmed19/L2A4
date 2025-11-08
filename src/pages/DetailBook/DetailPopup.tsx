@@ -69,7 +69,7 @@ const DetailPopup = ({ id }: DetailPopupProps) => {
         <DialogTrigger asChild className="cursor-pointer">
           <Eye size={20} />
         </DialogTrigger>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="min-w-3xl">
           <DialogHeader>
             <DialogTitle>Book Detail</DialogTitle>
             <DialogDescription>

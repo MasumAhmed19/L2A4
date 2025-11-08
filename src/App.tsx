@@ -4,10 +4,12 @@ import { Header } from './components/Header/Header'
 function App() {
 
   return (
-    <div className=''>
-      <Header />
-      <Outlet />
-      <Footer />
+    <div className='container mx-auto'>
+      <div className='px-4'>
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
     </div>
   )
 }

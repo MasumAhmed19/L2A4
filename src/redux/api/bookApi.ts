@@ -13,14 +13,11 @@ export interface IBook {
     updatedAt:string
 }
 
-
 export interface IBorrow {
     book : string,
     quantity: number,
     dueDate: Date
 }
-
-
 
 export const bookApi = createApi({
   reducerPath: "bookApi",
@@ -32,7 +29,7 @@ export const bookApi = createApi({
 
     getAllBooks: builder.query<IBook[], void>({
         query: ()=>({
-            url:'',
+            url:'/',
             method: 'GET',
         }),
         transformResponse: (response: { data: IBook[] }) => response.data,
@@ -50,7 +47,7 @@ export const bookApi = createApi({
 
     postBook: builder.mutation({
       query: (body:IBook) => ({
-        url: "",
+        url: "/",
         method: "POST",
         body,
       }),
@@ -71,7 +68,7 @@ export const bookApi = createApi({
         method: "PUT",
         body
       }),
-      invalidatesTags: ["books"],
+      invalidatesTags: ["books", "borrow"],
 
     })
 

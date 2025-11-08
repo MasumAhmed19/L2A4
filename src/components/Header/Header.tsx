@@ -13,8 +13,8 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <nav className=" w-full sticky top-0 z-50">
-      <div className="w-full container mx-auto px-4">
+    <nav className="relative w-full z-[50] pt-3">
+      <div className="w-full container mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
             <Link to="/" className="text-xl text-slate-900 font-semibold">

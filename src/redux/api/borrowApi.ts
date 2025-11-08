@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { IBorrow } from "./bookApi";
 
-
 export const borrowApi = createApi({
   reducerPath: "borrowApi",
   baseQuery: fetchBaseQuery({
@@ -12,7 +11,7 @@ export const borrowApi = createApi({
 
     postBorrow: builder.mutation({
           query: (body:IBorrow) => ({
-            url: "",
+            url: "/",
             method: "POST",
             body,
           }),
@@ -21,7 +20,7 @@ export const borrowApi = createApi({
 
     getSummary: builder.query({
         query:()=>({
-            url:"",
+            url:"/",
             method:"GET",
         }),
          transformResponse: (response: { data: IBorrow[] }) => response.data,
