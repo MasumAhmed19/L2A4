@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {

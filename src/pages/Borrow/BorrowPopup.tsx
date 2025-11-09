@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import {
-  useGetAllBooksQuery,
   useGetBookByIdQuery,
   type IBorrow,
 } from "@/redux/api/bookApi";
@@ -44,7 +43,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { CalendarIcon, BookOpen, User, Hash, Copy } from "lucide-react";
+import { CalendarIcon, BookOpen, Hash, Copy } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { usePostBorrowMutation } from "@/redux/api/borrowApi";
 import { Separator } from "@/components/ui/separator";
